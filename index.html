@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0b0f">
+  <meta name="description" content="Screen Time PolicyのProduction iOS UIをSimulator上で実操作して収録したレビューサイト">
   <title>Screen Time Policy — iOS UI Review</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main>
     <header class="hero">
-      <p class="eyebrow">iOS Simulator UI Review</p>
+      <p class="eyebrow">Production iOS UI Review</p>
       <h1>Screen Time Policy</h1>
-      <p class="lead">実際のiOS Simulator上でProduction Appを自動操作して収録したUIです。Web向けに作り直したモックではありません。</p>
+      <p class="lead">Production Appを実際のiOS Simulatorで起動し、XCUITestが初回オンボーディングから最初の行動案、詳細設定まで操作した結果です。Web用に描き直したモックではありません。</p>
       <div class="meta">
-        <span>iPhone 16 Pro</span><span>iOS 18.4 Simulator</span><span>日本語</span>
+        <span>iPhone 16 Pro</span><span>iOS 18.4 Simulator</span><span>日本語</span><span>Product-led onboarding</span>
       </div>
     </header>
 
@@ -22,7 +23,7 @@
       <div class="section-head">
         <div>
           <p class="kicker">Scenario 01</p>
-          <h2 id="movie-title">初回起動 → 最初の行動案 → 詳細設定</h2>
+          <h2 id="movie-title">初回起動 → 目標選択 → 行動案 → 詳細設定</h2>
         </div>
         <span class="verified">UI Test passed</span>
       </div>
@@ -39,7 +40,7 @@
         <button type="button" data-speed="1.5">1.5×</button>
         <button type="button" data-speed="2">2×</button>
       </div>
-      <p class="note">XCUITestが「続ける」「目標から提案を作る」「運動を続けたい」「次へ」「詳細設定へ」などを実際にタップ・スクロールしています。</p>
+      <p class="note">オンボーディングは「価値 → 設定の深さ → 権限 → 最初の行動」の4ページ構成です。最後のページで「運動」を選択すると、同じ目標を聞き直さず、そのまま完了条件の設定へ進みます。</p>
     </section>
 
     <section class="shots" aria-labelledby="shots-title">
@@ -50,9 +51,23 @@
         </div>
       </div>
       <div class="shot-grid">
-        <figure class="panel shot"><img src="assets/onboarding-start.png" alt="初期設定の最初の画面" loading="lazy"><figcaption><strong>初期設定</strong><span>設定できる粒度を最初に提示</span></figcaption></figure>
-        <figure class="panel shot"><img src="assets/proposal.png" alt="最初の行動案ができた画面" loading="lazy"><figcaption><strong>最初の行動案</strong><span>目標から運動の設定案を生成</span></figcaption></figure>
-        <figure class="panel shot"><img src="assets/policy-editor.png" alt="スマホ状態を追加する詳細設定画面" loading="lazy"><figcaption><strong>スマホ状態</strong><span>提案後も詳細設定で編集可能</span></figcaption></figure>
+        <figure class="panel shot"><img src="assets/onboarding-start.png" alt="行動に合わせてスマホが切り替わる価値を示すオンボーディング画面" loading="lazy"><figcaption><strong>01 — 価値</strong><span>機能一覧ではなく、ジムの行動journeyから利用後の姿を先に見せる</span></figcaption></figure>
+        <figure class="panel shot"><img src="assets/configuration-depth.png" alt="ジムの細かな設定例を示すオンボーディング画面" loading="lazy"><figcaption><strong>02 — 設定の深さ</strong><span>曜日・場所・スマホ状態・完了条件を1つの具体例で見せる</span></figcaption></figure>
+        <figure class="panel shot"><img src="assets/permissions.png" alt="スクリーンタイム、位置情報、通知の用途を説明する画面" loading="lazy"><figcaption><strong>03 — 権限</strong><span>OSダイアログの前に、3権限を何に使うか明示する</span></figcaption></figure>
+        <figure class="panel shot"><img src="assets/first-action.png" alt="最初の行動の目標を選ぶ画面" loading="lazy"><figcaption><strong>04 — 最初の行動</strong><span>「作り方を選ぶ」中間画面をなくし、目標を直接選択する</span></figcaption></figure>
+        <figure class="panel shot"><img src="assets/proposal.png" alt="運動の最初の行動案が完成した画面" loading="lazy"><figcaption><strong>行動案</strong><span>必要な質問だけでDraftを作り、変更可能な範囲を明示する</span></figcaption></figure>
+        <figure class="panel shot"><img src="assets/policy-editor.png" alt="生成した運動の行動を詳細編集するProduction画面" loading="lazy"><figcaption><strong>Production Editor</strong><span>Guided pathも詳細設定も同じProduction Editorへ収束する</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="panel decision" aria-labelledby="decision-title">
+      <p class="kicker">Implemented decision</p>
+      <h2 id="decision-title">説明書ではなく、使い始めるためのオンボーディングへ</h2>
+      <div class="decision-grid">
+        <div><strong>Dedicated onboarding</strong><span>初回オンボーディングページ自体は維持</span></div>
+        <div><strong>Outcome first</strong><span>設定項目より先に、行動中の体験を見せる</span></div>
+        <div><strong>Progressive disclosure</strong><span>高い設定自由度は具体例で示し、詳細は必要時に展開</span></div>
+        <div><strong>No duplicate question</strong><span>オンボーディングで選んだ目標をGuided flowへ引き継ぐ</span></div>
       </div>
     </section>
 
@@ -60,12 +75,14 @@
       <p class="kicker">Capture provenance</p>
       <h2 id="about-title">このレビューの生成条件</h2>
       <dl>
-        <div><dt>Source commit</dt><dd><code>2ad1d41</code></dd></div>
+        <div><dt>Source commit</dt><dd><code>06ffab5</code></dd></div>
+        <div><dt>Specification</dt><dd><code>2026-08-19_product_led_onboarding.md</code></dd></div>
+        <div><dt>ADR</dt><dd><code>ADR-0005_product_led_onboarding_and_progressive_disclosure</code></dd></div>
         <div><dt>Simulator</dt><dd>iPhone 16 Pro / iOS 18.4</dd></div>
-        <div><dt>Scenario</dt><dd>OnboardingUITests.testOnboardingShowsConfigurationDepthThenBuildsGoalBasedDraft</dd></div>
-        <div><dt>Result</dt><dd>1 test / 0 failures</dd></div>
+        <div><dt>Scenario</dt><dd>OnboardingUITests.testProductLedOnboardingHandsSelectedGoalIntoGuidedDraft</dd></div>
+        <div><dt>Result</dt><dd>1 capture test / 0 failures</dd></div>
         <div><dt>Capture</dt><dd>simctl recordVideo / H.264</dd></div>
-        <div><dt>Deployment</dt><dd>GitHub Pages / branch deploy / GitHub Actionsなし</dd></div>
+        <div><dt>Deployment</dt><dd>GitHub Pages / main branch deploy / GitHub Actionsなし</dd></div>
       </dl>
     </section>
   </main>

@@ -1,10 +1,12 @@
 {
-  "sourceCommit": "2ad1d41d0a3b9fdb672b9d0c530e08b422849cbf",
+  "sourceCommit": "06ffab5ea922d615fe0643c2ac984a1a337d0764",
   "simulator": "iPhone 16 Pro",
   "os": "iOS 18.4",
   "locale": "ja",
-  "scenario": "OnboardingUITests.testOnboardingShowsConfigurationDepthThenBuildsGoalBasedDraft",
+  "scenario": "OnboardingUITests.testProductLedOnboardingHandsSelectedGoalIntoGuidedDraft",
   "result": { "tests": 1, "failures": 0 },
-  "video": { "codec": "h264", "width": 1206, "height": 2622, "durationSeconds": 27.92 },
+  "video": { "codec": "h264", "width": 1206, "height": 2622, "durationSeconds": 23.89 },
+  "specification": "docs/specs/2026-08-19_product_led_onboarding.md",
+  "adr": "docs/ADR/0005_product_led_onboarding_and_progressive_disclosure.md",
   "githubActions": false
 }
