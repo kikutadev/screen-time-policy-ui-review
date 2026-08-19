@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0f">
+  <title>Screen Time Policy — iOS UI Review</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">iOS Simulator UI Review</p>
+      <h1>Screen Time Policy</h1>
+      <p class="lead">実際のiOS Simulator上でProduction Appを自動操作して収録したUIです。Web向けに作り直したモックではありません。</p>
+      <div class="meta">
+        <span>iPhone 16 Pro</span><span>iOS 18.4 Simulator</span><span>日本語</span>
+      </div>
+    </header>
+
+    <section class="panel video-panel" aria-labelledby="movie-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Scenario 01</p>
+          <h2 id="movie-title">初回起動 → 最初の行動案 → 詳細設定</h2>
+        </div>
+        <span class="verified">UI Test passed</span>
+      </div>
+      <div class="phone-frame">
+        <video id="review-video" controls playsinline preload="metadata" poster="assets/onboarding-start.png">
+          <source src="assets/onboarding.mp4" type="video/mp4">
+          お使いのブラウザは動画再生に対応していません。
+        </video>
+      </div>
+      <div class="controls" aria-label="再生速度">
+        <span>再生速度</span>
+        <button type="button" data-speed="0.5">0.5×</button>
+        <button type="button" data-speed="1" class="active">1×</button>
+        <button type="button" data-speed="1.5">1.5×</button>
+        <button type="button" data-speed="2">2×</button>
+      </div>
+      <p class="note">XCUITestが「続ける」「目標から提案を作る」「運動を続けたい」「次へ」「詳細設定へ」などを実際にタップ・スクロールしています。</p>
+    </section>
+
+    <section class="shots" aria-labelledby="shots-title">
+      <div class="section-head compact">
+        <div>
+          <p class="kicker">Key frames</p>
+          <h2 id="shots-title">主要画面</h2>
+        </div>
+      </div>
+      <div class="shot-grid">
+        <figure class="panel shot"><img src="assets/onboarding-start.png" alt="初期設定の最初の画面" loading="lazy"><figcaption><strong>初期設定</strong><span>設定できる粒度を最初に提示</span></figcaption></figure>
+        <figure class="panel shot"><img src="assets/proposal.png" alt="最初の行動案ができた画面" loading="lazy"><figcaption><strong>最初の行動案</strong><span>目標から運動の設定案を生成</span></figcaption></figure>
+        <figure class="panel shot"><img src="assets/policy-editor.png" alt="スマホ状態を追加する詳細設定画面" loading="lazy"><figcaption><strong>スマホ状態</strong><span>提案後も詳細設定で編集可能</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="panel provenance" aria-labelledby="about-title">
+      <p class="kicker">Capture provenance</p>
+      <h2 id="about-title">このレビューの生成条件</h2>
+      <dl>
+        <div><dt>Source commit</dt><dd><code>2ad1d41</code></dd></div>
+        <div><dt>Simulator</dt><dd>iPhone 16 Pro / iOS 18.4</dd></div>
+        <div><dt>Scenario</dt><dd>OnboardingUITests.testOnboardingShowsConfigurationDepthThenBuildsGoalBasedDraft</dd></div>
+        <div><dt>Result</dt><dd>1 test / 0 failures</dd></div>
+        <div><dt>Capture</dt><dd>simctl recordVideo / H.264</dd></div>
+        <div><dt>Deployment</dt><dd>GitHub Pages / branch deploy / GitHub Actionsなし</dd></div>
+      </dl>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

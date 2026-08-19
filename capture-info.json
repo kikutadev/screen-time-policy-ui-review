@@ -1,0 +1,10 @@
+{
+  "sourceCommit": "2ad1d41d0a3b9fdb672b9d0c530e08b422849cbf",
+  "simulator": "iPhone 16 Pro",
+  "os": "iOS 18.4",
+  "locale": "ja",
+  "scenario": "OnboardingUITests.testOnboardingShowsConfigurationDepthThenBuildsGoalBasedDraft",
+  "result": { "tests": 1, "failures": 0 },
+  "video": { "codec": "h264", "width": 1206, "height": 2622, "durationSeconds": 27.92 },
+  "githubActions": false
+}
