@@ -1,8 +1,8 @@
-# Screen Time Policy — iOS UI Review
+# Aimwill — iOS UI Review
 
 GitHub Pages向けのProduction UIレビュー成果物です。Webモックではなく、Production AppをiOS Simulatorで実行し、XCUITestによる実操作を `simctl recordVideo` で収録しています。
 
-- Source commit: `06ffab5ea922d615fe0643c2ac984a1a337d0764`
+- Source commit: `0a256f6`
 - Simulator: iPhone 16 Pro / iOS 18.4
 - UI test: `OnboardingUITests.testProductLedOnboardingHandsSelectedGoalIntoGuidedDraft`
 - Result: pass (1 capture test, 0 failures)
